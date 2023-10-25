@@ -1,0 +1,44 @@
+<div class="header__button">
+    <a href="/logout">
+        <button>
+            Logout
+        </button>
+    </a>
+</div>
+<h1>Welcome admin</h1>
+<div class="adminAddBtn">
+    <a href="/addBlog"><button class="addBtnAdmin">Add Blog</button></a>
+</div>
+<section class="articles">
+    <h2 class="articles_heading">Latest Posts</h2>
+
+    <ul class="article-ul">
+
+        <% data.forEach(post=> { %>
+
+            <li>
+                <a href="/post/<%= post._id %>">
+                    <span>
+                        <%= post.title %>
+                    </span>
+                    <span class="article-list__date">
+                        <%= post.createdAt.toDateString() %>
+                    </span>
+                </a>
+                <div class="button-container">
+                    <a href="/editBlog/<%= post._id %>">
+                        <button type="submit"
+                            style="background-color: skyblue; color: black; border-radius: 12px; padding: 5px 20px; border: none; margin-right: 10px;">Edit</button>
+                    </a>
+                    <a href="/deleteBlog/<%= post._id %>">
+                        <button type="submit"
+                            style="background-color: red; color: black; border-radius: 12px; padding: 5px 20px; border: none;">Delete</button>
+                    </a>
+                </div>
+            </li>
+            <% }) %>
+
+    </ul>
+
+
+</section>
